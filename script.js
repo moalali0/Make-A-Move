@@ -174,6 +174,15 @@ function calculateQuote() {
     setTimeout(() => {
         resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 200);
+
+    // Track Lead event in Meta Pixel
+    if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+            content_name: 'Quote Calculator',
+            value: total,
+            currency: 'GBP'
+        });
+    }
 }
 
 // Add event listener to Calculate Button

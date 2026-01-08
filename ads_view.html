@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Made a Move - Ad Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-navy: #0a192f;
+            --color-gold: #C5A059;
+            --color-white: #FFFFFF;
+        }
+
+        body {
+            background-color: #e0e0e0;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .gallery-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 60px;
+            width: 100%;
+            max-width: 1200px;
+            padding-bottom: 100px;
+        }
+
+        /* Common Ad Container Styles - FIXED SIZES to prevent collapse */
+        .ad-container {
+            width: 450px;
+            height: 450px;
+            background-color: var(--color-navy);
+            position: relative;
+            /* Overflow hidden removed to ensure content is visible even if sizing is off, 
+               but kept for consistent card look if needed. We'll rely on fixed size. */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            flex-shrink: 0;
+            /* Prevent shrinking */
+        }
+
+        /* --- Design 1: The Question --- */
+        #design-1 {
+            border: 4px solid var(--color-navy);
+        }
+
+        #design-1 h2 {
+            font-size: 3.8rem;
+            color: var(--color-white);
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+        }
+
+        #design-1 p {
+            font-size: 1.4rem;
+            color: var(--color-gold);
+            margin-top: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Design 2: The Number --- */
+        #design-2 .big-number {
+            font-size: 11rem;
+            color: var(--color-gold);
+            font-weight: 900;
+            line-height: 0.9;
+            margin: 0;
+            letter-spacing: -5px;
+        }
+
+        #design-2 .seconds {
+            font-size: 2.2rem;
+            color: var(--color-white);
+            letter-spacing: 8px;
+            font-weight: 700;
+            margin-top: 0px;
+            display: block;
+        }
+
+        #design-2 .sub {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Design 3: The Icon --- */
+        #design-3 svg {
+            width: 110px;
+            height: 110px;
+            stroke: var(--color-gold);
+            stroke-width: 1.5;
+            fill: none;
+            margin-bottom: 1.5rem;
+        }
+
+        #design-3 h3 {
+            font-size: 2.4rem;
+            color: var(--color-white);
+            margin: 0;
+            font-weight: 700;
+        }
+
+        #design-3 p {
+            color: var(--color-gold);
+            font-size: 1.1rem;
+            margin-top: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* --- Design 4: The Testimonial --- */
+        #design-4 {
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        #design-4 .stars {
+            color: var(--color-gold);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: 5px;
+        }
+
+        #design-4 .quote {
+            color: var(--color-white);
+            font-size: 1.7rem;
+            font-style: italic;
+            line-height: 1.4;
+            font-weight: 400;
+        }
+
+        #design-4 .author {
+            color: var(--color-gold);
+            font-size: 1.1rem;
+            margin-top: 1.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* --- Design 6: The Checklist --- */
+        #design-6 {
+            align-items: flex-start;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+
+        #design-6 .logo {
+            color: var(--color-gold);
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: auto;
+        }
+
+        #design-6 ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+            width: 100%;
+        }
+
+        #design-6 li {
+            color: var(--color-white);
+            font-size: 1.7rem;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+        }
+
+        #design-6 .btn {
+            background: var(--color-gold);
+            color: var(--color-navy);
+            padding: 18px 0;
+            width: 100%;
+            text-align: center;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+
+        .ad-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .ad-meta {
+            color: #555;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="text-align: center; max-width: 600px; margin-bottom: 40px;">
+        <h1>Your Mobile Ads</h1>
+        <p style="color: #666; line-height: 1.6;">
+            Fixed size (450x450px) for perfect screenshots.
+            <br><strong>Instructions:</strong> Zoom to 100%. Use <em>Cmd+Shift+4</em> to take a screenshot of individual
+            squares.
+        </p>
+    </div>
+
+    <div class="gallery-container">
+
+        <!-- Design 1 -->
+        <div class="ad-wrapper">
+            <div class="ad-meta">1. The Simple Question</div>
+            <div id="design-1" class="ad-container">
+                <h2>MOVING<br>SOON?</h2>
+                <p>Free Quote in 60s</p>
+            </div>
+        </div>
+
+        <!-- Design 2 -->
+        <div class="ad-wrapper">
+            <div class="ad-meta">2. The Big Number</div>
+            <div id="design-2" class="ad-container">
+                <div class="big-number">60</div>
+                <div class="seconds">SECONDS</div>
+                <div class="sub">Free Moving Quote</div>
+            </div>
+        </div>
+
+        <!-- Design 6 -->
+        <div class="ad-wrapper">
+            <div class="ad-meta">3. The Checklist</div>
+            <div id="design-6" class="ad-container">
+                <div class="logo">MADE A MOVE</div>
+                <ul>
+                    <li>✅ No Hidden Fees</li>
+                    <li>✅ Pay Later</li>
+                    <li>✅ Instant Quote</li>
+                </ul>
+                <div class="btn">GET MY PRICE</div>
+            </div>
+        </div>
+
+        <!-- Design 3 -->
+        <div class="ad-wrapper">
+            <div class="ad-meta">4. The Icon</div>
+            <div id="design-3" class="ad-container">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M1 3h15v13H1z" />
+                    <path d="M16 8h4l3 3v5h-7V8z" />
+                    <circle cx="5.5" cy="18.5" r="2.5" />
+                    <circle cx="18.5" cy="18.5" r="2.5" />
+                </svg>
+                <h3>INSTANT<br>QUOTE</h3>
+                <p>London • UK</p>
+            </div>
+        </div>
+
+        <!-- Design 4 -->
+        <div class="ad-wrapper">
+            <div class="ad-meta">5. The Testimonial</div>
+            <div id="design-4" class="ad-container">
+                <div class="stars">★★★★★</div>
+                <div class="quote">"Best movers in London. No hidden fees."</div>
+                <div class="author">SARAH A.</div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>

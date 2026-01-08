@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 312">
+  <!-- Background: Deep Navy with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a192f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#172a45;stop-opacity:1" />
+    </linearGradient>
+    <!-- Gold gradient for accents -->
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#C5A059;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4af37;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="312" fill="url(#bgGradient)"/>
+
+  <!-- Decorative gold line top -->
+  <rect x="0" y="0" width="820" height="4" fill="url(#goldGradient)"/>
+
+  <!-- Decorative gold line bottom -->
+  <rect x="0" y="308" width="820" height="4" fill="url(#goldGradient)"/>
+
+  <!-- Left decorative element - abstract boxes/moving theme -->
+  <g opacity="0.15">
+    <rect x="30" y="80" width="60" height="60" fill="#C5A059" rx="5"/>
+    <rect x="70" y="120" width="45" height="45" fill="#C5A059" rx="5"/>
+    <rect x="20" y="160" width="35" height="35" fill="#C5A059" rx="5"/>
+  </g>
+
+  <!-- Right decorative element - abstract boxes -->
+  <g opacity="0.15">
+    <rect x="730" y="70" width="55" height="55" fill="#C5A059" rx="5"/>
+    <rect x="700" y="140" width="40" height="40" fill="#C5A059" rx="5"/>
+    <rect x="750" y="180" width="50" height="50" fill="#C5A059" rx="5"/>
+  </g>
+
+  <!-- Center content group -->
+  <g transform="translate(410, 156)">
+    <!-- Moving Van Icon (centered above text) -->
+    <g transform="translate(-40, -85) scale(0.8)">
+      <!-- Van Body -->
+      <path fill="#C5A059" d="M10,40 L10,90 L90,90 L90,40 Z" />
+      <!-- Van Cab -->
+      <path fill="#C5A059" d="M92,55 L92,90 L120,90 L120,65 L110,55 Z" />
+      <!-- Wheels -->
+      <circle cx="35" cy="95" r="12" fill="#e6f1ff" stroke="#C5A059" stroke-width="4"/>
+      <circle cx="100" cy="95" r="12" fill="#e6f1ff" stroke="#C5A059" stroke-width="4"/>
+      <!-- Speed Lines -->
+      <path stroke="#C5A059" stroke-width="3" stroke-linecap="round" d="M-10,50 L5,50 M-15,60 L0,60 M-10,70 L5,70"/>
+    </g>
+
+    <!-- Main Title -->
+    <text x="0" y="35" font-family="'Arial', 'Helvetica', sans-serif" font-weight="bold" font-size="52" fill="#C5A059" text-anchor="middle">
+      Made A Move
+    </text>
+
+    <!-- Tagline -->
+    <text x="0" y="65" font-family="'Arial', 'Helvetica', sans-serif" font-size="18" fill="#e6f1ff" text-anchor="middle" letter-spacing="4">
+      PREMIUM LONDON MOVERS
+    </text>
+
+    <!-- Contact info / CTA -->
+    <text x="0" y="100" font-family="'Arial', 'Helvetica', sans-serif" font-size="16" fill="#8892b0" text-anchor="middle" letter-spacing="1">
+      07704 844 827 | made-a-move.netlify.app
+    </text>
+  </g>
+
+  <!-- Decorative corner accents -->
+  <path d="M0,0 L80,0 L0,80 Z" fill="#C5A059" opacity="0.1"/>
+  <path d="M820,312 L740,312 L820,232 Z" fill="#C5A059" opacity="0.1"/>
+</svg>

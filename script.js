@@ -175,21 +175,26 @@ function calculateQuote() {
         resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 200);
 
-    // Track Lead event in Meta Pixel
-    if (typeof fbq !== 'undefined') {
-        fbq('track', 'Lead', {
-            content_name: 'Quote Calculator',
-            value: total,
-            currency: 'GBP'
-        });
-        console.log('Meta Pixel: Lead event fired with value £' + total);
-    } else {
-        console.warn('Meta Pixel: fbq not loaded - check for ad blockers');
-    }
 }
 
 // Add event listener to Calculate Button
-document.getElementById('calculate-btn').addEventListener('click', calculateQuote);
+document.getElementById('calculate-btn').addEventListener('click', function() {
+    // Run the quote calculation
+    calculateQuote();
+
+    // Fire Meta Pixel Lead event
+    if (typeof fbq === 'function') {
+        const quoteValue = parseInt(document.getElementById('quote-total').textContent) || 50;
+        fbq('track', 'Lead', {
+            content_name: 'Quote Calculator',
+            value: quoteValue,
+            currency: 'GBP'
+        });
+        console.log('✅ Meta Pixel Lead event fired! Quote value: £' + quoteValue);
+    } else {
+        console.error('❌ Meta Pixel not loaded. Check for ad blockers or script errors.');
+    }
+});
 
 // =============================================
 // MICRO-INTERACTIONS - Enhanced Focus States

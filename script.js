@@ -182,6 +182,9 @@ function calculateQuote() {
             value: total,
             currency: 'GBP'
         });
+        console.log('Meta Pixel: Lead event fired with value £' + total);
+    } else {
+        console.warn('Meta Pixel: fbq not loaded - check for ad blockers');
     }
 }
 

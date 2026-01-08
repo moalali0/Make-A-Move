@@ -678,3 +678,147 @@ body {
         padding-bottom: 5rem;
     }
 }
+
+/* Urgency Banner */
+.urgency-banner {
+    background: linear-gradient(90deg, #ff6b35, #f7c94b);
+    color: var(--color-navy);
+    text-align: center;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.banner-close {
+    background: none;
+    border: none;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--color-navy);
+}
+
+/* Trust Strip */
+.trust-strip {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 5%;
+    background: linear-gradient(90deg, var(--color-gold), #d4af37);
+    color: var(--color-navy);
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.trust-strip-item {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .trust-strip {
+        flex-wrap: wrap;
+        gap: 0.5rem 1.5rem;
+        text-align: center;
+    }
+}
+
+/* How It Works */
+.how-it-works {
+    padding: 4rem 5%;
+    background-color: var(--color-navy);
+    text-align: center;
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.step {
+    padding: 2rem;
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+}
+
+.step h3 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+}
+
+.step p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 768px) {
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Quote Urgency */
+.quote-urgency {
+    color: var(--color-gold);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* CTA Micro-copy */
+.cta-microcopy {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin-top: 0.75rem;
+}
+
+/* Reviewer Photo */
+.reviewer-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1rem;
+}
+
+/* Areas Text in Footer */
+.areas-text {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Scroll Fade-In Animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer Grid Update for 4 columns */
+@media (min-width: 769px) {
+    .footer-content {
+        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    }
+}

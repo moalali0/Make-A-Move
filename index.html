@@ -12,6 +12,11 @@
 </head>
 
 <body>
+    <div class="urgency-banner" id="urgency-banner">
+        <span>🔥 London bookings filling fast for January. Secure your date.</span>
+        <button class="banner-close" onclick="document.getElementById('urgency-banner').style.display='none'">✕</button>
+    </div>
+
     <nav class="navbar">
         <img src="assets/logo.svg" alt="Made a Move Logo" class="navbar-logo">
         <ul class="navbar-links">
@@ -22,13 +27,45 @@
     </nav>
 
     <section class="hero">
-        <h1 class="hero-headline">Stress-Free Moving in London & the UK</h1>
-        <p class="hero-subhead">Professional. Reliable. Fully Insured.</p>
+        <h1 class="hero-headline">Moving Day, Without The Drama.</h1>
+        <p class="hero-subhead">Your belongings arrive safe. On time. Every time.</p>
+        <a href="#quote" class="btn btn-primary btn-large">See My Price Instantly</a>
+        <p class="cta-microcopy">Free. No email required. Takes 60 seconds.</p>
+    </section>
+
+    <!-- Trust Badge Strip -->
+    <div class="trust-strip">
+        <div class="trust-strip-item">🔒 No Hidden Fees</div>
+        <div class="trust-strip-item">✓ Fully Insured (£50k)</div>
+        <div class="trust-strip-item">£ Pay on Completion</div>
+        <div class="trust-strip-item">⭐ 100+ 5-Star Reviews</div>
+    </div>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <h2 class="section-title">Simple as 1-2-3</h2>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Get Your Price</h3>
+                <p>Tell us where and when. Instant quote, no waiting.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>We Confirm</h3>
+                <p>Lock in your slot. Friendly team assigned.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Relax</h3>
+                <p>We arrive on time, handle everything. You enjoy your new space.</p>
+            </div>
+        </div>
     </section>
 
     <!-- Instant Quote Calculator - First Thing Customers See -->
     <section id="quote" class="quote">
-        <h2 class="section-title">Get Your Instant Quote</h2>
+        <h2 class="section-title">Your Price in 60 Seconds. No Surprises.</h2>
         <div class="quote-container">
             <form id="quote-calculator" class="quote-form">
                 <div class="form-grid">
@@ -102,7 +139,8 @@
                 <p class="quote-label">Your Estimated Quote</p>
                 <p class="quote-price">£<span id="quote-total">50</span></p>
                 <div class="quote-cta-box">
-                    <p class="quote-note"><strong>Price valid for 24 hours.</strong> High demand for this week.</p>
+                    <p class="quote-note"><strong>Your Price: £<span class="quote-total-inline">50</span></strong></p>
+                    <p class="quote-urgency">Valid for 24 hours. High demand this week.</p>
                     <a href="tel:+447922957627" class="btn btn-primary btn-large btn-block">
                         Call Now to Lock In Quote
                         <span class="btn-subtext">07922 957 627</span>
@@ -115,8 +153,8 @@
     </section>
 
     <!-- Why Choose Us - Trust Section -->
-    <section class="trust-section">
-        <h2 class="section-title">Why Choose Made a Move?</h2>
+    <section class="trust-section fade-in">
+        <h2 class="section-title">Why Thousands Trust Us With Their Homes</h2>
         <div class="trust-grid">
             <div class="trust-item">
                 <div class="trust-icon">★</div>
@@ -153,8 +191,8 @@
         </div>
     </section>
 
-    <section id="services" class="services">
-        <h2 class="section-title">Our Premium Services</h2>
+    <section id="services" class="services fade-in">
+        <h2 class="section-title">Everything You Need, One Call</h2>
         <div class="services-grid">
             <a href="services.html#house-moving" class="service-card-link">
                 <div class="service-card">
@@ -222,22 +260,25 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <section class="testimonials-section fade-in">
         <h2 class="section-title">What Our Customers Say</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
+                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Mohamed and the team were fantastic. Careful with my piano and super fast. Made
                     the whole day stress-free."</p>
                 <p class="reviewer">- Sarah J., Kensington</p>
             </div>
             <div class="testimonial-card">
+                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Best quote I got, and the service was premium. No hidden fees, just honest hard
                     work. Highly recommend."</p>
                 <p class="reviewer">- James P., Ealing</p>
             </div>
             <div class="testimonial-card">
+                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/men/67.jpg');"></div>
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Saved me last minute. Polite, professional, and fully insured. They even helped
                     dismantle my wardrobe."</p>
@@ -247,7 +288,7 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section fade-in">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-container">
             <div class="faq-item">
@@ -291,6 +332,10 @@
                     <li><a href="#services">Office Moves</a></li>
                     <li><a href="#quote">Instant Quote</a></li>
                 </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Areas We Cover</h4>
+                <p class="areas-text">Kensington, Chelsea, Fulham, Ealing, Hackney, Islington, Camden, Brixton, and all London postcodes.</p>
             </div>
         </div>
         <div class="footer-bottom">

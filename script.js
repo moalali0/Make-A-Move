@@ -80,6 +80,12 @@ function calculateQuote() {
     // Update display
     quoteTotalEl.textContent = total.toFixed(0);
 
+    // Update inline quote total in CTA box
+    const inlineTotal = document.querySelector('.quote-total-inline');
+    if (inlineTotal) {
+        inlineTotal.textContent = total.toFixed(0);
+    }
+
     // Show the result
     document.getElementById('quote-result').style.display = 'block';
 
@@ -177,3 +183,15 @@ function runTests() {
 
 // Auto-run tests on load
 console.log('Quote Calculator loaded. Run runTests() in console to verify logic.');
+
+// Scroll Animation
+const fadeElements = document.querySelectorAll('.fade-in');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1 });
+
+fadeElements.forEach(el => observer.observe(el));

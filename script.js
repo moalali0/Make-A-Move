@@ -305,3 +305,47 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 fadeElements.forEach(el => observer.observe(el));
+
+// =============================================
+// CONTACT FORM - WhatsApp Integration
+// =============================================
+const whatsappContactBtn = document.getElementById('whatsapp-contact-btn');
+
+if (whatsappContactBtn) {
+    whatsappContactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        // Get form values
+        const name = document.getElementById('contact-name')?.value || '';
+        const email = document.getElementById('contact-email')?.value || '';
+        const phone = document.getElementById('contact-phone')?.value || '';
+        const message = document.getElementById('contact-message')?.value || '';
+
+        // Build WhatsApp message
+        let whatsappMessage = `Hi, I'm contacting you from your website.\n\n`;
+
+        if (name) whatsappMessage += `*Name:* ${name}\n`;
+        if (email) whatsappMessage += `*Email:* ${email}\n`;
+        if (phone) whatsappMessage += `*Phone:* ${phone}\n`;
+        if (message) whatsappMessage += `\n*Message:*\n${message}`;
+
+        // Encode message for URL
+        const encodedMessage = encodeURIComponent(whatsappMessage);
+
+        // Open WhatsApp with pre-filled message
+        const whatsappUrl = `https://wa.me/447704844827?text=${encodedMessage}`;
+        window.open(whatsappUrl, '_blank');
+    });
+}
+
+// Track Contact Form submission in Meta Pixel
+const contactForm = document.getElementById('contact-form-el');
+if (contactForm) {
+    contactForm.addEventListener('submit', function() {
+        if (typeof fbq !== 'undefined') {
+            fbq('track', 'Contact', {
+                content_name: 'Contact Form'
+            });
+        }
+    });
+}

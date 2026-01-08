@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 120">
+  <!-- Background: Deep Navy -->
+  <rect width="400" height="120" fill="#0a192f" rx="10" ry="10"/>
+  
+  <!-- Icon: Stylized Moving Van (Gold) -->
+  <g transform="translate(20, 25) scale(0.6)">
+    <!-- Van Body -->
+    <path fill="#C5A059" d="M10,40 L10,90 L90,90 L90,40 Z" />
+    <!-- Van Cab -->
+    <path fill="#C5A059" d="M92,55 L92,90 L120,90 L120,65 L110,55 Z" />
+    <!-- Wheels -->
+    <circle cx="35" cy="95" r="12" fill="#e6f1ff" stroke="#C5A059" stroke-width="4"/>
+    <circle cx="100" cy="95" r="12" fill="#e6f1ff" stroke="#C5A059" stroke-width="4"/>
+    <!-- Speed Lines -->
+    <path stroke="#C5A059" stroke-width="3" stroke-linecap="round" d="M-10,50 L5,50 M-15,60 L0,60 M-10,70 L5,70"/>
+  </g>
+
+  <!-- Text: Made a Move (Gold) -->
+  <text x="110" y="75" font-family="'Arial', sans-serif" font-weight="bold" font-size="38" fill="#C5A059">
+    Made A Move
+  </text>
+  
+  <!-- Subtitle/Tagline (White/Light Blue) -->
+  <text x="112" y="98" font-family="'Arial', sans-serif" font-size="14" fill="#e6f1ff" letter-spacing="1">
+    LONDON MOVERS
+  </text>
+</svg>

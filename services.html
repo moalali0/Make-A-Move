@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Made a Move</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .page-header {
+            background-color: var(--color-navy-light);
+            padding: 8rem 5% 4rem;
+            text-align: center;
+        }
+
+        .service-detail {
+            padding: 4rem 5%;
+            max-width: 1000px;
+            margin: 0 auto;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid var(--color-gold);
+        }
+
+        .detail-content h2 {
+            color: var(--color-gold);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .detail-content h3 {
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-white);
+        }
+
+        .detail-content ul {
+            list-style-type: none;
+            margin-left: 0;
+        }
+
+        .detail-content li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--color-text-muted);
+        }
+
+        .detail-content li::before {
+            content: "✓";
+            color: var(--color-gold);
+            position: absolute;
+            left: 0;
+        }
+
+        @media(max-width: 768px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .detail-image {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a href="index.html">
+            <img src="assets/logo.svg" alt="Made a Move Logo" class="navbar-logo">
+        </a>
+        <ul class="navbar-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#quote">Get Quote</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header class="page-header">
+        <h1 class="hero-headline">Detailed Services</h1>
+        <p class="hero-subhead">How we take special care of your move.</p>
+    </header>
+
+    <section id="house-moving" class="service-detail">
+        <div class="detail-grid">
+            <div class="detail-content">
+                <h2>House Moving</h2>
+                <p>Moving house is one of life's most stressful events. At Made a Move, we aim to make it the easiest
+                    part of your transition. Our team is trained to handle furniture of all sizes, from delicate
+                    antiques to heavy wardrobes.</p>
+
+                <h3>How We Do It</h3>
+                <ul>
+                    <li><strong>Pre-Move Planning:</strong> We verify access points and parking to avoid surprises.</li>
+                    <li><strong>Furniture Protection:</strong> All large items are blanket-wrapped and strapped securely
+                        in the van.</li>
+                    <li><strong>Floor Protection:</strong> We respect your home, using covers for carpets and hardwood
+                        floors where necessary.</li>
+                    <li><strong>Placement:</strong> We don't just dump items; we place them exactly where you want them
+                        in your new rooms.</li>
+                </ul>
+
+                <h3>Special Care</h3>
+                <ul>
+                    <li><strong>Fragile Items:</strong> Extra padding for glassware, mirrors, and antiques.</li>
+                    <li><strong>Difficult Access:</strong> Trained to navigate tight staircases, narrow hallways, and challenging entry points.</li>
+                    <li><strong>Fully Insured:</strong> Goods in transit insurance for complete peace of mind.</li>
+                </ul>
+            </div>
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+                alt="House Moving" class="detail-image">
+        </div>
+    </section>
+
+    <section id="commercial" class="service-detail">
+        <div class="detail-grid">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                alt="Commercial Moving" class="detail-image">
+            <div class="detail-content">
+                <h2>Commercial & Office Moves</h2>
+                <p>Time is money. Our commercial moving service is designed to minimise downtime for your business. We
+                    offer flexible scheduling, including weekends and evenings, so you can be up and running on Monday
+                    morning.</p>
+
+                <h3>How We Do It</h3>
+                <ul>
+                    <li><strong>Site Survey:</strong> We assess your current and new premises to plan the most efficient move.</li>
+                    <li><strong>Flexible Scheduling:</strong> Moves can be scheduled for evenings or weekends to avoid business disruption.</li>
+                    <li><strong>IT Equipment Handling:</strong> Computers, servers, and sensitive equipment are carefully transported.</li>
+                    <li><strong>Disassembly/Reassembly:</strong> We handle office desks, workstations, and shelving units.</li>
+                </ul>
+
+                <h3>Special Care</h3>
+                <ul>
+                    <li><strong>Confidentiality:</strong> All team members are vetted and trained in handling sensitive documents.</li>
+                    <li><strong>IT Coordination:</strong> We can work with your IT team for seamless equipment transition.</li>
+                    <li><strong>Commercial Insurance:</strong> Full liability cover specifically for business premises and equipment.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="packing" class="service-detail">
+        <div class="detail-grid">
+            <div class="detail-content">
+                <h2>Professional Packing</h2>
+                <p>Don't want to live among boxes for weeks? Let our professional packers handle it. We can pack your
+                    entire home in a day, using high-quality materials to ensure zero breakages.</p>
+
+                <h3>Our Process</h3>
+                <ul>
+                    <li><strong>Quality Materials:</strong> We use double-walled boxes, bubble wrap, and acid-free paper
+                        for crockery.</li>
+                    <li><strong>Labeling:</strong> Every box is clearly labeled by room and content.</li>
+                    <li><strong>Wardrobe Boxes:</strong> We bring hanging rails so your clothes go straight from
+                        wardrobe to box to wardrobe.</li>
+                    <li><strong>Unpacking Service:</strong> We can unpack at your new home and remove all packing materials.</li>
+                </ul>
+
+                <h3>Special Care</h3>
+                <ul>
+                    <li><strong>Artwork Protection:</strong> Corner guards and blanket wrapping for framed items.</li>
+                    <li><strong>Electronics:</strong> Original boxes used when available, or custom padding solutions.</li>
+                    <li><strong>Valuable Inventory:</strong> We document high-value items for your peace of mind.</li>
+                </ul>
+            </div>
+            <img src="https://images.unsplash.com/photo-1600518464441-9154a4dea21b?auto=format&fit=crop&w=800&q=80"
+                alt="Packing Service" class="detail-image">
+        </div>
+    </section>
+
+    <section id="storage" class="service-detail">
+        <div class="detail-grid">
+            <img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80"
+                alt="Storage" class="detail-image">
+            <div class="detail-content">
+                <h2>Secure Storage</h2>
+                <p>Whether you have a gap between exchange and completion or just need to declutter, our storage
+                    solutions are secure, dry, and affordable.</p>
+
+                <h3>How We Do It</h3>
+                <ul>
+                    <li><strong>Collection Service:</strong> We pick up items from your property and transport them directly to storage.</li>
+                    <li><strong>Inventory System:</strong> Every item is logged and photographed for your records.</li>
+                    <li><strong>Easy Retrieval:</strong> Access your items with just 24 hours notice.</li>
+                </ul>
+
+                <h3>Special Care</h3>
+                <ul>
+                    <li><strong>24/7 Security:</strong> CCTV monitored with alarm systems and secure access controls.</li>
+                    <li><strong>Climate Controlled:</strong> Consistent temperature and humidity levels protect your belongings.</li>
+                    <li><strong>Fully Insured:</strong> All stored items are covered by our comprehensive insurance.</li>
+                    <li><strong>Flexible Terms:</strong> Store for a week, a month, or as long as you need.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="disposal" class="service-detail">
+        <div class="detail-grid">
+            <div class="detail-content">
+                <h2>Rubbish Disposal</h2>
+                <p>Moving often means clearing out items you no longer need. As a licensed waste carrier, we offer ethical and responsible disposal of furniture, household items, and general waste. We recycle and donate wherever possible.</p>
+
+                <h3>How We Do It</h3>
+                <ul>
+                    <li><strong>Assessment:</strong> We review what needs to be removed and provide a clear, upfront quote.</li>
+                    <li><strong>Careful Removal:</strong> Our team removes items from any floor, including bulky furniture and appliances.</li>
+                    <li><strong>Sorting:</strong> Items are sorted into recyclable, donatable, and disposable categories.</li>
+                    <li><strong>Responsible Disposal:</strong> We work with licensed recycling centres and local charities.</li>
+                    <li><strong>Documentation:</strong> You receive a Waste Transfer Note proving legal and ethical disposal.</li>
+                </ul>
+
+                <h3>Special Care</h3>
+                <ul>
+                    <li><strong>Sustainability Focus:</strong> Usable furniture and appliances are donated to local charities.</li>
+                    <li><strong>E-Waste Certified:</strong> Electronics are taken to certified e-waste recyclers.</li>
+                    <li><strong>No Fly-Tipping:</strong> We never illegally dump waste and always provide proof of responsible disposal.</li>
+                    <li><strong>Property Protection:</strong> Our team handles heavy items safely, protecting your floors and walls during removal.</li>
+                </ul>
+            </div>
+            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=800&q=80"
+                alt="Rubbish Disposal" class="detail-image">
+        </div>
+    </section>
+
+    <section class="services-cta" style="text-align: center; padding: 4rem 5%; background-color: var(--color-navy-light);">
+        <h2 class="section-title">Ready to Get Started?</h2>
+        <p style="color: var(--color-text-muted); margin-bottom: 2rem;">Get an instant quote for your move in under 2 minutes.</p>
+        <a href="index.html#quote" class="btn btn-primary btn-large">Get an Instant Quote</a>
+    </section>
+
+    <section id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-col">
+                <img src="assets/logo.svg" alt="Made a Move" class="footer-logo">
+                <p>Professional moving services in London and across the UK.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p><a href="tel:+447922957627">07922 957 627</a></p>
+                <p>London, UK</p>
+            </div>
+            <div class="footer-col">
+                <h4>Services</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#quote">Instant Quote</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Made a Move. All rights reserved.</p>
+        </div>
+    </section>
+</body>
+
+</html>

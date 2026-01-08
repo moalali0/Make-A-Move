@@ -20,11 +20,89 @@ const pickupFloorSelect = document.getElementById('pickup-floor');
 const dropoffFloorSelect = document.getElementById('dropoff-floor');
 const pickupElevatorCheckbox = document.getElementById('pickup-elevator');
 const dropoffElevatorCheckbox = document.getElementById('dropoff-elevator');
-const boxesInput = document.getElementById('boxes'); // New Input
+const boxesInput = document.getElementById('boxes');
 const appliancesInput = document.getElementById('appliances');
 const furnitureInput = document.getElementById('furniture');
 
-// Calculate Quote
+// Conditional Fields (Progressive Disclosure)
+const pickupElevatorField = document.getElementById('pickup-elevator-field');
+const dropoffElevatorField = document.getElementById('dropoff-elevator-field');
+
+// =============================================
+// PROGRESSIVE DISCLOSURE - Show/Hide Elevator Fields
+// =============================================
+function updateElevatorVisibility() {
+    // Pickup elevator field
+    if (pickupFloorSelect && pickupElevatorField) {
+        const pickupFloor = parseInt(pickupFloorSelect.value) || 0;
+        if (pickupFloor > 0) {
+            pickupElevatorField.classList.add('visible');
+        } else {
+            pickupElevatorField.classList.remove('visible');
+            // Reset checkbox when hiding
+            if (pickupElevatorCheckbox) pickupElevatorCheckbox.checked = false;
+        }
+    }
+
+    // Dropoff elevator field
+    if (dropoffFloorSelect && dropoffElevatorField) {
+        const dropoffFloor = parseInt(dropoffFloorSelect.value) || 0;
+        if (dropoffFloor > 0) {
+            dropoffElevatorField.classList.add('visible');
+        } else {
+            dropoffElevatorField.classList.remove('visible');
+            // Reset checkbox when hiding
+            if (dropoffElevatorCheckbox) dropoffElevatorCheckbox.checked = false;
+        }
+    }
+}
+
+// Add event listeners for floor selects
+if (pickupFloorSelect) {
+    pickupFloorSelect.addEventListener('change', updateElevatorVisibility);
+}
+if (dropoffFloorSelect) {
+    dropoffFloorSelect.addEventListener('change', updateElevatorVisibility);
+}
+
+// Initialize on page load
+updateElevatorVisibility();
+
+// =============================================
+// STEPPER BUTTONS - +/- for item counts
+// =============================================
+function initStepperButtons() {
+    const stepperButtons = document.querySelectorAll('.stepper-btn');
+
+    stepperButtons.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const targetId = this.dataset.target;
+            const input = document.getElementById(targetId);
+            if (!input) return;
+
+            let currentValue = parseInt(input.value) || 0;
+            const min = parseInt(input.min) || 0;
+
+            if (this.classList.contains('stepper-plus')) {
+                currentValue++;
+            } else if (this.classList.contains('stepper-minus')) {
+                if (currentValue > min) currentValue--;
+            }
+
+            input.value = currentValue;
+
+            // Add a subtle pulse animation
+            input.classList.add('stepper-pulse');
+            setTimeout(() => input.classList.remove('stepper-pulse'), 150);
+        });
+    });
+}
+
+initStepperButtons();
+
+// =============================================
+// CALCULATE QUOTE
+// =============================================
 function calculateQuote() {
     let total = 0;
 
@@ -33,8 +111,8 @@ function calculateQuote() {
     const rooms = parseInt(roomsInput.value) || 0;
     const pickupFloor = parseInt(pickupFloorSelect.value) || 0;
     const dropoffFloor = parseInt(dropoffFloorSelect.value) || 0;
-    const hasPickupElevator = pickupElevatorCheckbox.checked;
-    const hasDropoffElevator = dropoffElevatorCheckbox.checked;
+    const hasPickupElevator = pickupElevatorCheckbox ? pickupElevatorCheckbox.checked : false;
+    const hasDropoffElevator = dropoffElevatorCheckbox ? dropoffElevatorCheckbox.checked : false;
     const boxes = parseInt(boxesInput.value) || 0;
     const appliances = parseInt(appliancesInput.value) || 0;
     const furniture = parseInt(furnitureInput.value) || 0;
@@ -77,24 +155,47 @@ function calculateQuote() {
         total = MIN_PRICE;
     }
 
-    // Update display
-    quoteTotalEl.textContent = total.toFixed(0);
+    // Update display with animation
+    const priceValue = quoteTotalEl;
+    priceValue.style.transform = 'scale(0.8)';
+    priceValue.style.opacity = '0';
 
-    // Update inline quote total in CTA box
-    const inlineTotal = document.querySelector('.quote-total-inline');
-    if (inlineTotal) {
-        inlineTotal.textContent = total.toFixed(0);
-    }
+    setTimeout(() => {
+        quoteTotalEl.textContent = total.toFixed(0);
+        priceValue.style.transform = 'scale(1)';
+        priceValue.style.opacity = '1';
+    }, 150);
 
     // Show the result
-    document.getElementById('quote-result').style.display = 'block';
+    const resultEl = document.getElementById('quote-result');
+    resultEl.style.display = 'block';
 
-    // Scroll to result
-    document.getElementById('quote-result').scrollIntoView({ behavior: 'smooth' });
+    // Scroll to result smoothly
+    setTimeout(() => {
+        resultEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 200);
 }
 
 // Add event listener to Calculate Button
 document.getElementById('calculate-btn').addEventListener('click', calculateQuote);
+
+// =============================================
+// MICRO-INTERACTIONS - Enhanced Focus States
+// =============================================
+function addInputFocusEffects() {
+    const inputs = document.querySelectorAll('.premium-input, .premium-select');
+
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.parentElement.classList.add('input-focused');
+        });
+        input.addEventListener('blur', function() {
+            this.parentElement.classList.remove('input-focused');
+        });
+    });
+}
+
+addInputFocusEffects();
 
 // FAQ Accordion Logic
 const faqQuestions = document.querySelectorAll('.faq-question');

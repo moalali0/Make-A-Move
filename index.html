@@ -9,6 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Meta Pixel Code -->
+    <!-- IMPORTANT: Replace 'YOUR_PIXEL_ID' with your actual Pixel ID from Meta Events Manager -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', 'YOUR_PIXEL_ID');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -36,7 +57,7 @@
     <!-- Trust Badge Strip -->
     <div class="trust-strip">
         <div class="trust-strip-item">🔒 No Hidden Fees</div>
-        <div class="trust-strip-item">✓ Fully Insured (£50k)</div>
+        <div class="trust-strip-item">✓ Careful Handling</div>
         <div class="trust-strip-item">£ Pay on Completion</div>
         <div class="trust-strip-item">⭐ 100+ 5-Star Reviews</div>
     </div>
@@ -63,90 +84,190 @@
         </div>
     </section>
 
-    <!-- Instant Quote Calculator - First Thing Customers See -->
+    <!-- Instant Quote Calculator - Premium Experience -->
     <section id="quote" class="quote">
-        <h2 class="section-title">Your Price in 60 Seconds. No Surprises.</h2>
+        <div class="quote-header">
+            <span class="quote-badge">Instant Quote</span>
+            <h2 class="quote-title">Your Price in 60 Seconds</h2>
+            <p class="quote-subtitle">No surprises. No hidden fees. Just honest pricing.</p>
+        </div>
+
         <div class="quote-container">
-            <form id="quote-calculator" class="quote-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="distance">Distance (Miles)</label>
-                        <input type="number" id="distance" name="distance" min="0" value="0">
+            <form id="quote-calculator" class="quote-form-premium">
+
+                <!-- Section: Move Details -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <span class="section-icon">📍</span>
+                        <h3 class="section-label">Move Details</h3>
                     </div>
 
-                    <div class="form-group">
-                        <label for="rooms">Number of Rooms</label>
-                        <input type="number" id="rooms" name="rooms" min="0" value="1">
+                    <div class="form-field">
+                        <label for="distance" class="field-label">Distance</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="distance" name="distance" min="0" value="0" class="premium-input"
+                                placeholder="0">
+                            <span class="input-suffix">miles</span>
+                        </div>
+                        <span class="field-hint">First 4 miles included free</span>
                     </div>
 
-                    <div class="form-group">
-                        <label for="pickup-floor">Pickup Floor</label>
-                        <select id="pickup-floor" name="pickup-floor">
-                            <option value="0">Ground</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dropoff-floor">Dropoff Floor</label>
-                        <select id="dropoff-floor" name="dropoff-floor">
-                            <option value="0">Ground</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group form-group-checkbox">
-                        <label>
-                            <input type="checkbox" id="pickup-elevator" name="pickup-elevator">
-                            <span>Elevator at Pickup?</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group form-group-checkbox">
-                        <label>
-                            <input type="checkbox" id="dropoff-elevator" name="dropoff-elevator">
-                            <span>Elevator at Dropoff?</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="boxes">Boxes/Bags (Estimated)</label>
-                        <input type="number" id="boxes" name="boxes" min="0" value="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="appliances">Large Appliances (Fridge/Washer)</label>
-                        <input type="number" id="appliances" name="appliances" min="0" value="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="furniture">Large Furniture (Bed/Couch/Wardrobe/Large Cabinets)</label>
-                        <input type="number" id="furniture" name="furniture" min="0" value="0">
+                    <div class="form-field">
+                        <label for="rooms" class="field-label">Number of Rooms</label>
+                        <div class="input-wrapper">
+                            <input type="number" id="rooms" name="rooms" min="0" value="1" class="premium-input"
+                                placeholder="1">
+                            <span class="input-suffix">rooms</span>
+                        </div>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button type="button" id="calculate-btn" class="btn btn-primary btn-large">Calculate Quote</button>
+
+                <!-- Section: Pickup Location -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <span class="section-icon">🏠</span>
+                        <h3 class="section-label">Pickup Location</h3>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="pickup-floor" class="field-label">Floor Level</label>
+                        <div class="select-wrapper">
+                            <select id="pickup-floor" name="pickup-floor" class="premium-select">
+                                <option value="0">Ground Floor</option>
+                                <option value="1">1st Floor</option>
+                                <option value="2">2nd Floor</option>
+                                <option value="3">3rd Floor</option>
+                                <option value="4">4th Floor or Higher</option>
+                            </select>
+                            <span class="select-arrow">▾</span>
+                        </div>
+                    </div>
+
+                    <div class="form-field conditional-field" id="pickup-elevator-field">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Elevator Available?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="pickup-elevator" name="pickup-elevator">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <span class="field-hint">Having an elevator reduces the cost</span>
+                    </div>
+                </div>
+
+                <!-- Section: Dropoff Location -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <span class="section-icon">🏡</span>
+                        <h3 class="section-label">Dropoff Location</h3>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="dropoff-floor" class="field-label">Floor Level</label>
+                        <div class="select-wrapper">
+                            <select id="dropoff-floor" name="dropoff-floor" class="premium-select">
+                                <option value="0">Ground Floor</option>
+                                <option value="1">1st Floor</option>
+                                <option value="2">2nd Floor</option>
+                                <option value="3">3rd Floor</option>
+                                <option value="4">4th Floor or Higher</option>
+                            </select>
+                            <span class="select-arrow">▾</span>
+                        </div>
+                    </div>
+
+                    <div class="form-field conditional-field" id="dropoff-elevator-field">
+                        <label class="toggle-label">
+                            <span class="toggle-text">Elevator Available?</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="dropoff-elevator" name="dropoff-elevator">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </label>
+                        <span class="field-hint">Having an elevator reduces the cost</span>
+                    </div>
+                </div>
+
+                <!-- Section: Your Items -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <span class="section-icon">📦</span>
+                        <h3 class="section-label">Your Items</h3>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="boxes" class="field-label">Boxes & Bags</label>
+                        <div class="stepper-input">
+                            <button type="button" class="stepper-btn stepper-minus" data-target="boxes">−</button>
+                            <input type="number" id="boxes" name="boxes" min="0" value="0" class="stepper-value"
+                                readonly>
+                            <button type="button" class="stepper-btn stepper-plus" data-target="boxes">+</button>
+                        </div>
+                        <span class="field-hint">Estimated number of boxes</span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="appliances" class="field-label">Large Appliances</label>
+                        <div class="stepper-input">
+                            <button type="button" class="stepper-btn stepper-minus" data-target="appliances">−</button>
+                            <input type="number" id="appliances" name="appliances" min="0" value="0"
+                                class="stepper-value" readonly>
+                            <button type="button" class="stepper-btn stepper-plus" data-target="appliances">+</button>
+                        </div>
+                        <span class="field-hint">Fridge, washing machine, etc.</span>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="furniture" class="field-label">Large Furniture</label>
+                        <div class="stepper-input">
+                            <button type="button" class="stepper-btn stepper-minus" data-target="furniture">−</button>
+                            <input type="number" id="furniture" name="furniture" min="0" value="0" class="stepper-value"
+                                readonly>
+                            <button type="button" class="stepper-btn stepper-plus" data-target="furniture">+</button>
+                        </div>
+                        <span class="field-hint">Beds, sofas, wardrobes, cabinets</span>
+                    </div>
+                </div>
+
+                <!-- Calculate Button -->
+                <div class="form-action">
+                    <button type="button" id="calculate-btn" class="btn-calculate">
+                        <span class="btn-text">See My Quote</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                    <p class="action-note">Takes 2 seconds • No commitment</p>
                 </div>
             </form>
 
-            <div id="quote-result" class="quote-result" style="display: none;">
-                <p class="quote-label">Your Estimated Quote</p>
-                <p class="quote-price">£<span id="quote-total">50</span></p>
-                <div class="quote-cta-box">
-                    <p class="quote-note"><strong>Your Price: £<span class="quote-total-inline">50</span></strong></p>
-                    <p class="quote-urgency">Valid for 24 hours. High demand this week.</p>
-                    <a href="tel:+447922957627" class="btn btn-primary btn-large btn-block">
-                        Call Now to Lock In Quote
-                        <span class="btn-subtext">07922 957 627</span>
-                    </a>
-                    <p class="quote-disclaimer">Quote subject to final confirmation of inventory and parking
-                        availability.</p>
+            <!-- Quote Result -->
+            <div id="quote-result" class="quote-result-premium" style="display: none;">
+                <div class="result-card">
+                    <div class="result-header">
+                        <span class="result-badge">Your Quote</span>
+                    </div>
+                    <div class="result-price">
+                        <span class="currency">£</span>
+                        <span id="quote-total" class="price-value">50</span>
+                    </div>
+                    <p class="result-validity">
+                        <span class="validity-icon">⏱</span>
+                        Valid for 24 hours • High demand this week
+                    </p>
+
+                    <div class="result-cta">
+                        <a href="tel:+447922957627" class="btn-call">
+                            <span class="call-icon">📞</span>
+                            <span class="call-text">
+                                <strong>Lock In This Price</strong>
+                                <small>07922 957 627</small>
+                            </span>
+                        </a>
+                        <a href="https://wa.me/447922957627" class="btn-whatsapp">
+                            <span>WhatsApp Us</span>
+                        </a>
+                    </div>
+
+                    <p class="result-disclaimer">Final quote confirmed after inventory review</p>
                 </div>
             </div>
         </div>
@@ -163,8 +284,8 @@
             </div>
             <div class="trust-item">
                 <div class="trust-icon">✓</div>
-                <h3>Fully Insured</h3>
-                <p>Goods in transit and public liability insurance included for peace of mind.</p>
+                <h3>Careful Handling</h3>
+                <p>Every item wrapped, protected, and handled with care by our trained team.</p>
             </div>
             <div class="trust-item">
                 <div class="trust-icon">⚡</div>
@@ -264,23 +385,27 @@
         <h2 class="section-title">What Our Customers Say</h2>
         <div class="testimonials-grid">
             <div class="testimonial-card">
-                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
+                <div class="reviewer-photo"
+                    style="background-image: url('https://randomuser.me/api/portraits/women/44.jpg');"></div>
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Mohamed and the team were fantastic. Careful with my piano and super fast. Made
                     the whole day stress-free."</p>
                 <p class="reviewer">- Sarah J., Kensington</p>
             </div>
             <div class="testimonial-card">
-                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+                <div class="reviewer-photo"
+                    style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
                 <div class="stars">★★★★★</div>
                 <p class="review-text">"Best quote I got, and the service was premium. No hidden fees, just honest hard
                     work. Highly recommend."</p>
                 <p class="reviewer">- James P., Ealing</p>
             </div>
             <div class="testimonial-card">
-                <div class="reviewer-photo" style="background-image: url('https://randomuser.me/api/portraits/men/67.jpg');"></div>
+                <div class="reviewer-photo"
+                    style="background-image: url('https://randomuser.me/api/portraits/men/67.jpg');"></div>
                 <div class="stars">★★★★★</div>
-                <p class="review-text">"Saved me last minute. Polite, professional, and fully insured. They even helped
+                <p class="review-text">"Saved me last minute. Polite, professional, and so careful with everything. They
+                    even helped
                     dismantle my wardrobe."</p>
                 <p class="reviewer">- David, Soho</p>
             </div>
@@ -294,7 +419,8 @@
             <div class="faq-item">
                 <button class="faq-question">Are my items insured? <span class="icon">+</span></button>
                 <div class="faq-answer">
-                    <p>Yes, we are fully insured for goods in transit and public liability. Your belongings are safe
+                    <p>Yes, we carry comprehensive coverage for goods in transit and public liability. Your belongings
+                        are safe
                         with us.</p>
                 </div>
             </div>
@@ -335,7 +461,8 @@
             </div>
             <div class="footer-col">
                 <h4>Areas We Cover</h4>
-                <p class="areas-text">Kensington, Chelsea, Fulham, Ealing, Hackney, Islington, Camden, Brixton, and all London postcodes.</p>
+                <p class="areas-text">Kensington, Chelsea, Fulham, Ealing, Hackney, Islington, Camden, Brixton, and all
+                    London postcodes.</p>
             </div>
         </div>
         <div class="footer-bottom">

@@ -24,13 +24,97 @@
     <section class="hero">
         <h1 class="hero-headline">Stress-Free Moving in London & the UK</h1>
         <p class="hero-subhead">Professional. Reliable. Fully Insured.</p>
-        <a href="#quote" class="btn btn-primary btn-large">Get an Instant Quote</a>
+    </section>
+
+    <!-- Instant Quote Calculator - First Thing Customers See -->
+    <section id="quote" class="quote">
+        <h2 class="section-title">Get Your Instant Quote</h2>
+        <div class="quote-container">
+            <form id="quote-calculator" class="quote-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="distance">Distance (Miles)</label>
+                        <input type="number" id="distance" name="distance" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="rooms">Number of Rooms</label>
+                        <input type="number" id="rooms" name="rooms" min="0" value="1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pickup-floor">Pickup Floor</label>
+                        <select id="pickup-floor" name="pickup-floor">
+                            <option value="0">Ground</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dropoff-floor">Dropoff Floor</label>
+                        <select id="dropoff-floor" name="dropoff-floor">
+                            <option value="0">Ground</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group form-group-checkbox">
+                        <label>
+                            <input type="checkbox" id="pickup-elevator" name="pickup-elevator">
+                            <span>Elevator at Pickup?</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group form-group-checkbox">
+                        <label>
+                            <input type="checkbox" id="dropoff-elevator" name="dropoff-elevator">
+                            <span>Elevator at Dropoff?</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="boxes">Boxes/Bags (Estimated)</label>
+                        <input type="number" id="boxes" name="boxes" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="appliances">Large Appliances (Fridge/Washer)</label>
+                        <input type="number" id="appliances" name="appliances" min="0" value="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="furniture">Large Furniture (Bed/Couch/Wardrobe/Large Cabinets)</label>
+                        <input type="number" id="furniture" name="furniture" min="0" value="0">
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button type="button" id="calculate-btn" class="btn btn-primary btn-large">Calculate Quote</button>
+                </div>
+            </form>
+
+            <div id="quote-result" class="quote-result" style="display: none;">
+                <p class="quote-label">Your Estimated Quote</p>
+                <p class="quote-price">£<span id="quote-total">50</span></p>
+                <div class="quote-cta-box">
+                    <p class="quote-note"><strong>Price valid for 24 hours.</strong> High demand for this week.</p>
+                    <a href="tel:+447922957627" class="btn btn-primary btn-large btn-block">
+                        Call Now to Lock In Quote
+                        <span class="btn-subtext">07922 957 627</span>
+                    </a>
+                    <p class="quote-disclaimer">Quote subject to final confirmation of inventory and parking
+                        availability.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Why Choose Us - Trust Section -->
-
-
-    <!-- Benefits Bar -->
     <section class="trust-section">
         <h2 class="section-title">Why Choose Made a Move?</h2>
         <div class="trust-grid">
@@ -137,93 +221,6 @@
         </div>
     </section>
 
-    <section id="quote" class="quote">
-        <h2 class="section-title">Instant Quote Calculator</h2>
-        <div class="quote-container">
-            <form id="quote-calculator" class="quote-form">
-                <div class="form-grid">
-                    <div class="form-group">
-                        <label for="distance">Distance (Miles)</label>
-                        <input type="number" id="distance" name="distance" min="0" value="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="rooms">Number of Rooms</label>
-                        <input type="number" id="rooms" name="rooms" min="0" value="1">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="pickup-floor">Pickup Floor</label>
-                        <select id="pickup-floor" name="pickup-floor">
-                            <option value="0">Ground</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="dropoff-floor">Dropoff Floor</label>
-                        <select id="dropoff-floor" name="dropoff-floor">
-                            <option value="0">Ground</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4+</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group form-group-checkbox">
-                        <label>
-                            <input type="checkbox" id="pickup-elevator" name="pickup-elevator">
-                            <span>Elevator at Pickup?</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group form-group-checkbox">
-                        <label>
-                            <input type="checkbox" id="dropoff-elevator" name="dropoff-elevator">
-                            <span>Elevator at Dropoff?</span>
-                        </label>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="boxes">Boxes/Bags (Estimated)</label>
-                        <input type="number" id="boxes" name="boxes" min="0" value="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="appliances">Large Appliances (Fridge/Washer)</label>
-                        <input type="number" id="appliances" name="appliances" min="0" value="0">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="furniture">Large Furniture (Bed/Couch/Wardrobe/Large Cabinets)</label>
-                        <input type="number" id="furniture" name="furniture" min="0" value="0">
-                    </div>
-                </div>
-                <div style="text-align: center; margin-top: 2rem;">
-                    <button type="button" id="calculate-btn" class="btn btn-primary btn-large">Calculate Quote</button>
-                </div>
-            </form>
-
-            <div id="quote-result" class="quote-result" style="display: none;">
-                <p class="quote-label">Your Estimated Quote</p>
-                <p class="quote-price">£<span id="quote-total">50</span></p>
-                <div class="quote-cta-box">
-                    <p class="quote-note"><strong>Price valid for 24 hours.</strong> High demand for this week.</p>
-                    <a href="tel:+447922957627" class="btn btn-primary btn-large btn-block">
-                        Call Only to Lock In Quote
-                        <span class="btn-subtext">07922 957 627</span>
-                    </a>
-                    <p class="quote-disclaimer">Quote subject to final confirmation of inventory and parking
-                        availability.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Testimonials Section -->
     <section class="testimonials-section">
         <h2 class="section-title">What Our Customers Say</h2>
@@ -272,45 +269,6 @@
                     <p>Yes, our team carries tools to dismantle and reassemble beds, wardrobes, and other large
                         furniture items.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Bottom Trust & Benefits Reiteration -->
-    <section class="trust-section">
-        <h2 class="section-title">Why Choose Made a Move?</h2>
-        <div class="trust-grid">
-            <div class="trust-item">
-                <div class="trust-icon">★</div>
-                <h3>Top Rated Service</h3>
-                <p>We pride ourselves on our word-of-mouth reputation and 5-star feedback.</p>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">✓</div>
-                <h3>Fully Insured</h3>
-                <p>Goods in transit and public liability insurance included for peace of mind.</p>
-            </div>
-            <div class="trust-item">
-                <div class="trust-icon">⚡</div>
-                <h3>Reliable & Fast</h3>
-                <p>We turn up on time, every time. No delays, no excuses.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="benefits-bar">
-        <div class="benefits-container">
-            <div class="benefit-item">
-                <span class="benefit-icon">£</span>
-                <span>Payment Upon Completion</span>
-            </div>
-            <div class="benefit-item">
-                <span class="benefit-icon">✓</span>
-                <span>Lowest Price Guarantee</span>
-            </div>
-            <div class="benefit-item">
-                <span class="benefit-icon">⚡</span>
-                <span>Free AUTOMATIC INSTANT Quotation</span>
             </div>
         </div>
     </section>

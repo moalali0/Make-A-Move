@@ -5,7 +5,7 @@ const PRICE_PER_ROOM = 30;
 const APARTMENT_FEE = 40;
 const ELEVATOR_BASE_FEE = 25;
 const ELEVATOR_FLOOR_FEE = 10;
-const ITEM_BOX = 2;
+const ITEM_BOX = 3;
 const ITEM_APPLIANCE = 10;
 const ITEM_FURNITURE = 10;
 
